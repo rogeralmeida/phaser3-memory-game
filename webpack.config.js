@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -57,7 +58,9 @@ module.exports = {
 	},
 
 	mode: 'development',
-
+	plugins: [
+    new HtmlWebpackPlugin()
+  ],
 	optimization: {
 		splitChunks: {
 			chunks: 'async',
