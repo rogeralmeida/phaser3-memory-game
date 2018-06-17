@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import Header from './header';
+import React, {Component} from 'react'
+import Header from './header'
+import MemoryGame from './memory-game'
 
-
-export default class App extends React.Component {
-  render() {
+export default class App extends Component {
+  render () {
     return (
-      <div className="container">
+      <div className='container'>
         <Header />
         <main>
-          <div id="game-container"></div>
+          <MemoryGame />
         </main>
       </div>
     )
