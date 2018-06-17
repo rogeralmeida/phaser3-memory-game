@@ -1,34 +1,19 @@
-const webpack = require('webpack');
-const path = require('path');
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-/*
- * SplitChunksPlugin is enabled by default and replaced
- * deprecated CommonsChunkPlugin. It automatically identifies modules which
- * should be splitted of chunk by heuristics using module duplication count and
- * module category (i. e. node_modules). And splits the chunks…
- *
- * It is safe to remove "splitChunks" from the generated configuration
- * and was added as an educational example.
- *
- * https://webpack.js.org/plugins/split-chunks-plugin/
- *
- */
-
-/*
- * We've enabled UglifyJSPlugin for you! This minifies your app
- * in order to load faster and run less javascript.
- *
- * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
- *
- */
-
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
 module.exports = {
-	module: {
-		rules: [
-			{
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
+      },
+      {
         test: /\.(scss)$/,
         use: [
           {
@@ -46,7 +31,7 @@ module.exports = {
               plugins: function () {
                 return [
                   require('autoprefixer')
-                ];
+                ]
               }
             }
           },
@@ -56,43 +41,39 @@ module.exports = {
           }
         ]
       },
-			{
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       }
-		]
-	},
+    ]
+  },
 
-	entry: {
-		app: './src/js/index.js'
-		//, vendor: './vendor.js'
-	},
-
-	output: {
-		filename: '[name].js',
-		path: path.resolve(__dirname, 'dist')
-	},
-
-	mode: 'development',
-	plugins: [
+  entry: {
+    app: './src/js/index.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  mode: 'development',
+  plugins: [
     new HtmlWebpackPlugin()
   ],
-	optimization: {
-		splitChunks: {
-			chunks: 'async',
-			minSize: 30000,
-			minChunks: 1,
-			name: true,
-
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				}
-			}
-		}
-	}
-};
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        }
+      }
+    }
+  }
+}
