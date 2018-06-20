@@ -1,10 +1,8 @@
 import Card from './card'
-import Phaser from 'phaser'
 
 export default class Deck {
   constructor (shuffler) {
     var cards = []
-    this.suffler = shuffler
     for (var number = 2; number <= 10; number++) {
       ['diamonds', 'spades', 'hearts', 'clubs'].forEach((symbol) => {
         console.log(`about to create card: ${number} of ${symbol}`)
@@ -17,7 +15,7 @@ export default class Deck {
         cards.push(new Card(letter, symbolLetter))
       })
     })
-    this.cards = Phaser.Utils.Array.Shuffle(cards)
+    this.cards = shuffler.shuffle(cards)
   }
 
   pop (size) {
