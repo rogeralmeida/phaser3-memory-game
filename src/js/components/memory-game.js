@@ -43,7 +43,7 @@ export default class MemoryGame extends Component {
 
     function create () {
       this.add.image(400, 300, 'background')
-      var deck = new Deck(null)
+      var deck = new Deck(this)
       const initialX = 300
       const initialY = 150
       const stepX = 100

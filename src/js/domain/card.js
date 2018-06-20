@@ -7,6 +7,7 @@ export default class Card {
       y: 0
     }
     this.hidden = true
+    renderPort(this)
   }
 
   get positionX () {
