@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start:dev": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "author": "",
   "license": "ISC"
