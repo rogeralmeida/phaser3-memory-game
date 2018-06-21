@@ -2,28 +2,36 @@ export default class Card {
   constructor (renderPort, value, symbol) {
     this.value = value
     this.symbol = symbol
-    this.position = {
-      x: 0,
-      y: 0
-    }
     this.hidden = true
-    renderPort(this)
+    this.image = renderPort.render(this)
+    console.log(this.image)
+    this.image.visible = false
+    this.image.setScale(0.16)
+    this.backImage = renderPort.renderBack(this)
+    this.backImage.visible = false
+    this.backImage.setScale(0.16)
   }
 
   get positionX () {
-    return this.position.x
+    return this.image.x
   }
 
   get positionY () {
-    return this.position.y
+    return this.image.y
   }
 
   setPosition (x, y) {
-    this.position.x = x
-    this.position.y = y
+    this.image.x = x
+    this.image.y = y
+    this.backImage.x = x
+    this.backImage.y = y
   }
 
   toggle () {
     this.hidden = !this.hidden
+  }
+
+  show () {
+    this.backImage.visible = true
   }
 }

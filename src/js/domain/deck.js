@@ -5,7 +5,6 @@ export default class Deck {
     var cards = []
     for (var number = 2; number <= 10; number++) {
       ['diamonds', 'spades', 'hearts', 'clubs'].forEach((symbol) => {
-        console.log(`about to create card: ${number} of ${symbol}`)
         cards.push(new Card(renderPort, number, symbol))
       })
     }
@@ -19,7 +18,6 @@ export default class Deck {
   }
 
   pop (size) {
-    console.log('slicing deck')
     return this.cards.slice(0, size)
   }
 }

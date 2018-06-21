@@ -1,9 +1,6 @@
+import Phaser from 'phaser'
 export default class ShufflerAdapter {
-  constructor (arrayUtils) {
-    this.arrayUtils = arrayUtils
-  }
-
   shuffle (array) {
-    return this.arrayUtils.shuffle(array)
+    return Phaser.Utils.Array.Shuffle(array)
   }
 }
