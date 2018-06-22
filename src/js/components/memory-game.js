@@ -44,7 +44,7 @@ export default class MemoryGame extends Component {
 
     function create () {
       this.add.image(400, 300, 'background')
-      const board = new Board(this, 16)
+      const board = new Board(this, 24)
       board.start()
       this.input.on('gameobjectup', (pointer, gameObject) => {
           gameObject.emit('clicked', gameObject);
