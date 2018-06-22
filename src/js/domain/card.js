@@ -45,6 +45,19 @@ export default class Card {
     this.board = board
   }
 
+  equals(other){
+    if (!other instanceof Card){
+      console.log('card is of a different type')
+      console.log(typeof other)
+      return false
+    }
+    return this.value === other.value && this.symbol === other.symbol
+  }
+
+  freeze () {
+    this.frontImage.removeListener('clicked', this.onClick)
+  }
+
   _setupBackImage () {
     this.backImage.visible = false
     this.backImage.setScale(0.14)

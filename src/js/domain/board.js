@@ -13,6 +13,7 @@ var EventEmitter = require('eventemitter3');
 export default class Board extends EventEmitter {
   constructor (game, size) {
     super()
+    this.size = size
     var deck = new Deck(game, new ShufflerAdapter())
     if (size % 2 !== 0) {
       throw new Error('Size must be a even number')
@@ -24,10 +25,37 @@ export default class Board extends EventEmitter {
       doubleCards.push(new Card(game, card.value, card.symbol))
     })
     this.cards = new ShufflerAdapter().shuffle(doubleCards)
+    this.firstCard = null
+    this.secondCard = null
+    this.matches = 0
   }
 
   cardSelected (card) {
-    console.log(`Card: ${card.value} was clicked`)
+    if (this.firstCard === null){
+      this.firstCard = card
+      console.log('first card selected')
+    } else if (this.secondCard === null) {
+      this.secondCard = card
+      if (this.firstCard.equals(this.secondCard)) {
+        console.log('cards are equals')
+        this.firstCard.freeze()
+        this.secondCard.freeze()
+        this.firstCard = null
+        this.secondCard = null
+        this.matches += 2
+        if (this.matches === this.size){
+          console.log('You won')
+        }
+      } else {
+        console.log('cards are different')
+      }
+    } else {
+      console.log('no card was empty')
+      this.firstCard.toggle()
+      this.secondCard.toggle()
+      this.firstCard = card
+      this.secondCard = null
+    }
   }
 
   start () {
