@@ -34,10 +34,15 @@ export default class Card {
     this.hidden = !this.hidden
     this.frontImage.visible = !this.hidden
     this.backImage.visible = this.hidden
+    if (this.frontImage.visible) {
+      this.board.emit('cardSelected', this)
+    }
   }
 
-  show () {
+  setOnBoard(board, x, y) {
+    this.setPosition(x, y)
     this.backImage.visible = true
+    this.board = board
   }
 
   _setupBackImage () {

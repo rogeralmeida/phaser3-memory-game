@@ -8,11 +8,12 @@ const stepX = 100
 const stepY = 150
 const maxX = 700
 
-export default class Board {
+var EventEmitter = require('eventemitter3');
+
+export default class Board extends EventEmitter {
   constructor (game, size) {
+    super()
     var deck = new Deck(game, new ShufflerAdapter())
-    var xPosition = initialX
-    var yPosition = initialY
     if (size % 2 !== 0) {
       throw new Error('Size must be a even number')
     }
@@ -23,19 +24,23 @@ export default class Board {
       doubleCards.push(new Card(game, card.value, card.symbol))
     })
     this.cards = new ShufflerAdapter().shuffle(doubleCards)
+  }
+
+  cardSelected (card) {
+    console.log(`Card: ${card.value} was clicked`)
+  }
+
+  start () {
+    this.on('cardSelected', this.cardSelected, this)
+    var xPosition = initialX
+    var yPosition = initialY
     this.cards.forEach((card) => {
-      card.setPosition(xPosition, yPosition)
+      card.setOnBoard(this, xPosition, yPosition)
       xPosition += stepX
       if (xPosition >= maxX) {
         xPosition = initialX
         yPosition += stepY
       }
-    })
-  }
-
-  start () {
-    this.cards.forEach((card) => {
-      card.show()
     })
   }
 }
