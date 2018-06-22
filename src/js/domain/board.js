@@ -1,4 +1,3 @@
-import RenderPhaserAdapter from '../phaser-adapters/render-phaser-adapter'
 import ShufflerAdapter from '../phaser-adapters/shuffler-adapter'
 import Deck from './deck'
 import Card from './card'
@@ -11,7 +10,7 @@ const maxX = 700
 
 export default class Board {
   constructor (game, size) {
-    var deck = new Deck(new RenderPhaserAdapter(game), new ShufflerAdapter())
+    var deck = new Deck(game, new ShufflerAdapter())
     var xPosition = initialX
     var yPosition = initialY
     if (size % 2 !== 0) {
@@ -21,7 +20,7 @@ export default class Board {
     var doubleCards = []
     deck.pop(half).forEach((card) => {
       doubleCards.push(card)
-      doubleCards.push(new Card(new RenderPhaserAdapter(game), card.value, card.symbol))
+      doubleCards.push(new Card(game, card.value, card.symbol))
     })
     this.cards = new ShufflerAdapter().shuffle(doubleCards)
     this.cards.forEach((card) => {
