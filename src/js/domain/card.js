@@ -62,13 +62,13 @@ export default class Card {
     this.backImage.visible = false
     this.backImage.setScale(0.14)
     this.backImage.setInteractive()
-    this.backImage.on('clicked', this.onClick, this)
+    this.backImage.on('click', this.onClick, this)
   }
 
   _setupFrontImage () {
     this.frontImage.visible = false
     this.frontImage.setScale(0.18)
     this.frontImage.setInteractive()
-    this.frontImage.on('clicked', this.onClick, this)
+    this.frontImage.on('click', this.onClick, this)
   }
 }

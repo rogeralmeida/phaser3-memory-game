@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import React, {Component} from 'react'
-import MainScene from '../scenes/board-scene'
+import MainScene from '../scenes/main-scene'
 import WelcomeScene from '../scenes/welcome-scene'
 
 var requireContext = require.context('../../../images/cards/png-cards', true, /^\.\/.*\.png$/)
