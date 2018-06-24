@@ -9,21 +9,12 @@ export default class Board extends EventEmitter {
   constructor (game, size) {
     super()
 
-    if (size === 24){
-      this.initialX = 200
-      this.initialY = 120
-      this.stepX = 100
-      this.stepY = 150
-      this.maxX = 800
-      this.size = size
-    } else {
-      this.initialX = 300
-      this.initialY = 120
-      this.stepX = 100
-      this.stepY = 150
-      this.maxX = 700
-      this.size = size
-    }
+    this.initialX = 200
+    this.initialY = 120
+    this.stepX = 100
+    this.stepY = 150
+    this.maxX = 800
+    this.size = size
     var deck = new Deck(game, new ShufflerAdapter())
     if (size % 2 !== 0) {
       throw new Error('Size must be a even number')
@@ -37,39 +28,46 @@ export default class Board extends EventEmitter {
     this.cards = new ShufflerAdapter().shuffle(doubleCards)
     this.firstCard = null
     this.secondCard = null
+    this.game = game
     this.matches = 0
   }
 
   cardSelected (card) {
     if (this.firstCard === null){
       this.firstCard = card
-      console.log('first card selected')
     } else if (this.secondCard === null) {
       this.secondCard = card
       if (this.firstCard.equals(this.secondCard)) {
-        console.log('cards are equals')
         this.firstCard.freeze()
         this.secondCard.freeze()
         this.firstCard = null
         this.secondCard = null
         this.matches += 2
-        if (this.matches === this.size){
-          console.log('You won')
+        if (this.matches === this.size) {
+          this.game.scene.start('welcome')
+          this.game.scene.stop('main')
         }
       } else {
         console.log('cards are different')
       }
     } else {
-      console.log('no card was empty')
       this.firstCard.toggle()
       this.secondCard.toggle()
       this.firstCard = card
+    }
+  }
+
+  _cardDeselected(card) {
+    if (this.firstCard === card){
+      this.firstCard = null
+    } else if (this.secondCard === card) {
       this.secondCard = null
     }
   }
 
   start () {
     this.on('cardSelected', this.cardSelected, this)
+    this.on('cardDeselected', this._cardDeselected, this)
     var xPosition = this.initialX
     var yPosition = this.initialY
     this.cards.forEach((card) => {

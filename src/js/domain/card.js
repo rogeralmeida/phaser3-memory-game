@@ -37,6 +37,8 @@ export default class Card {
     this.backImage.visible = this.hidden
     if (this.frontImage.visible) {
       this.board.emit('cardSelected', this)
+    } else {
+      this.board.emit('cardDeselected', this)
     }
   }
 
@@ -47,6 +49,9 @@ export default class Card {
   }
 
   equals(other){
+    if(other === null){
+      return false
+    }
     if (!other instanceof Card){
       console.log('card is of a different type')
       console.log(typeof other)
