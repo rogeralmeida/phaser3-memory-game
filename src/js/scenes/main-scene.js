@@ -3,7 +3,7 @@ import CardBack from '../../../images/card-back.png'
 import Board from '../domain/board'
 import Phaser from 'phaser'
 
-var requireContext = require.context('../../../images/cards/png-cards/', true, /\*.png/)
+var requireContext = require.context('../../../images/cards/png-cards', true, /\.png$/)
 
 class MainScene extends Phaser.Scene {
 

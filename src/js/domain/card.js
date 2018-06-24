@@ -1,3 +1,4 @@
+const CLICK_EVENT_KEY = 'click'
 export default class Card {
   constructor (game, value, symbol) {
     this.game = game
@@ -55,20 +56,20 @@ export default class Card {
   }
 
   freeze () {
-    this.frontImage.removeListener('clicked', this.onClick)
+    this.frontImage.removeListener(CLICK_EVENT_KEY, this.onClick)
   }
 
   _setupBackImage () {
     this.backImage.visible = false
     this.backImage.setScale(0.14)
     this.backImage.setInteractive()
-    this.backImage.on('click', this.onClick, this)
+    this.backImage.on(CLICK_EVENT_KEY, this.onClick, this)
   }
 
   _setupFrontImage () {
     this.frontImage.visible = false
     this.frontImage.setScale(0.18)
     this.frontImage.setInteractive()
-    this.frontImage.on('click', this.onClick, this)
+    this.frontImage.on(CLICK_EVENT_KEY, this.onClick, this)
   }
 }
