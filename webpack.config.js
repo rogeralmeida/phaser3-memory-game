@@ -2,6 +2,17 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
+  entry: {
+    app: './src/js/index.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin()
+  ],
   module: {
     rules: [
       {
@@ -50,18 +61,6 @@ module.exports = {
       }
     ]
   },
-
-  entry: {
-    app: './src/js/index.js'
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  mode: 'development',
-  plugins: [
-    new HtmlWebpackPlugin()
-  ],
   optimization: {
     splitChunks: {
       chunks: 'async',
