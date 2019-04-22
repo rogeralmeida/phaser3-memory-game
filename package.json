@@ -39,7 +39,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "webpack -p",
     "start:dev": "webpack-dev-server",
     "test": "jest --watch --notify",
     "lint": "eslint ."
