@@ -44,7 +44,7 @@ export default class Board extends EventEmitter {
         this.secondCard = null
         this.matches += 2
         if (this.matches === this.size) {
-          this.game.scene.start('welcome')
+          this.game.scene.start('game-over')
           this.game.scene.stop('main')
         }
       } else {
