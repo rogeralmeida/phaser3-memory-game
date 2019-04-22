@@ -11,14 +11,13 @@ export default class Header extends React.Component {
                 <div className="row">
                   <div className="col-sm-8 col-md-7 py-4">
                     <h4 className="text-white">About</h4>
-                    <p className="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    <p className="text-muted">This is a simple memory game implementation using Phaser3</p>
                   </div>
                   <div className="col-sm-4 offset-md-1 py-4">
                     <h4 className="text-white">Contact</h4>
                     <ul className="list-unstyled">
-                      <li><a href="#" className="text-white">Follow on Twitter</a></li>
-                      <li><a href="#" className="text-white">Like on Facebook</a></li>
-                      <li><a href="#" className="text-white">Email me</a></li>
+                      <li><a href="https://twitter.com/rogeralmeidacom" className="text-white">Follow me on Twitter: @rogeralmeidacom</a></li>
+                      <li><a href="https://github.com/rogeralmeida/phaser3-memory-game" className="text-white">Fork me on github.com</a></li>
                     </ul>
                   </div>
                 </div>

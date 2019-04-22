@@ -9,6 +9,5 @@ rootElement.id = 'root'
 document.body.appendChild(rootElement)
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <App />, document.getElementById('root')
 )

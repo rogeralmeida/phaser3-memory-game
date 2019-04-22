@@ -9,7 +9,7 @@ var requireContext = require.context('../../../images/cards/png-cards', true, /^
 export default class MemoryGame extends Component {
   render () {
     return (
-      <div className='col-7' id='game-container' />
+      <div className='col-10' id='game-container' />
     )
   }
 
@@ -23,7 +23,5 @@ export default class MemoryGame extends Component {
     }
 
     this.game = new Phaser.Game(config)
-    this.game.scale.pageAlignHorizontally = true;
-    this.game.scale.pageAlignVertically = true;
   }
 }
