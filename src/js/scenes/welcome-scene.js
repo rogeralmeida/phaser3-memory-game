@@ -1,4 +1,8 @@
 import BackGroundBlackJack from '../../../images/background-blackjack.jpg'
+import NewGameImage from '../../../images/new-game.png'
+import BorgensBurlesqueImage from '../../../fonts/borgens_burlesque/Borgens Burlesque.png'
+import BorgensBurlesqueFont from '../../../fonts/borgens_burlesque/Borgens Burlesque.fnt'
+
 import Phaser from 'phaser'
 
 const BORGENS_BURLESQUE_FONT_NAME = 'borgerns-burlesque'
@@ -16,8 +20,8 @@ class WelcomeScene extends Phaser.Scene {
 
   preload () {
     this.load.image(BACKGROUND_IMAGE_KEY, BackGroundBlackJack)
-    this.load.image(NEW_GAME_BUTTON_KEY, 'images/new-game.png')
-    this.load.bitmapFont(BORGENS_BURLESQUE_FONT_NAME, 'fonts/borgens_burlesque/Borgens Burlesque.png', 'fonts/borgens_burlesque/Borgens Burlesque.fnt')
+    this.load.image(NEW_GAME_BUTTON_KEY, NewGameImage)
+    this.load.bitmapFont(BORGENS_BURLESQUE_FONT_NAME, BorgensBurlesqueImage, BorgensBurlesqueFont)
   }
 
   create (data){
