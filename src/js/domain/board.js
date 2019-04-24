@@ -9,11 +9,11 @@ export default class Board extends EventEmitter {
   constructor (game, size) {
     super()
 
-    this.initialX = 200
-    this.initialY = 120
+    this.initialX = 150
+    this.initialY = 75
     this.stepX = 100
     this.stepY = 150
-    this.maxX = 800
+    this.maxX = 700
     this.size = size
     var deck = new Deck(game, new ShufflerAdapter())
     if (size % 2 !== 0) {
