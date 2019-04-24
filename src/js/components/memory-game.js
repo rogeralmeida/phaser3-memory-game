@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import MainScene from '../scenes/main-scene'
 import WelcomeScene from '../scenes/welcome-scene'
 import GameOverScene from '../scenes/game-over-scene'
+import CongratulationsScene from '../scenes/congratulations-scene'
 
 var requireContext = require.context('../../../images/cards/png-cards', true, /^\.\/.*\.png$/)
 
@@ -23,7 +24,7 @@ export default class MemoryGame extends Component {
         width: 800,
         height: 600
       },
-      scene: [WelcomeScene, MainScene, GameOverScene]
+      scene: [WelcomeScene, MainScene, GameOverScene, CongratulationsScene]
     }
 
     this.game = new Phaser.Game(config)
