@@ -14,6 +14,10 @@ export default class MemoryGame extends Component {
     )
   }
 
+  shouldComponentUpdate () {
+    return false;
+  }
+
   componentDidMount () {
     var config = {
       type: Phaser.AUTO,
