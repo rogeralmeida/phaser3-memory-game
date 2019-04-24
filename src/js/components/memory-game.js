@@ -9,16 +9,20 @@ var requireContext = require.context('../../../images/cards/png-cards', true, /^
 export default class MemoryGame extends Component {
   render () {
     return (
-      <div className='col-10' id='game-container' />
+      <div className='col-12' id='game-container' />
     )
   }
 
   componentDidMount () {
     var config = {
       type: Phaser.AUTO,
-      width: 1024,
-      height: 768,
-      parent: 'game-container',
+      scale: {
+        parent: 'game-container',
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.DOM.CENTER_BOTH,
+        width: 800,
+        height: 600
+      },
       scene: [WelcomeScene, MainScene, GameOverScene]
     }
 

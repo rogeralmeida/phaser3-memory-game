@@ -9,9 +9,7 @@ export default class App extends Component {
         <Header />
         <main>
           <div className='row' >
-            <div className='col-1' />
             <MemoryGame />
-            <div className='col-1' />
           </div>
         </main>
       </div>

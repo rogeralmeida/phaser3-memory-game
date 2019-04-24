@@ -26,16 +26,18 @@ class WelcomeScene extends Phaser.Scene {
 
   create (data){
     this.add.image(0, 0, BACKGROUND_IMAGE_KEY)
-    this.newGameButton = this.add.image(500, 500, NEW_GAME_BUTTON_KEY)
+    this.newGameButton = this.add.image(400, 500, NEW_GAME_BUTTON_KEY)
+    this.newGameButton.centerX = this.newGameButton.width / 2
+    this.newGameButton.centery = this.newGameButton.heigth / 2
     this.newGameButton.setInteractive()
     this.newGameButton.on('click', this._newGameButtonClicked, this)
     this.input.on('gameobjectup', (pointer, gameObject) => {
-      console.log('Finally we captured a click')
       gameObject.emit('click', gameObject)
     }, this)
-    var text = this.add.bitmapText(120, 250, BORGENS_BURLESQUE_FONT_NAME, "Memory Game", 128);
-    text.centerX = text.width / 2
-    text.centerY = text.height / 2
+    var text = this.add.bitmapText(0, 300, BORGENS_BURLESQUE_FONT_NAME, "Memory Game", 64);
+    text.x = 400 - (text.width / 2)
+    text.y = 300 - (text.height / 2)
+    console.log(text)
     console.log(this)
   }
 
