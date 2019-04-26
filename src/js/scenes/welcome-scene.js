@@ -50,9 +50,8 @@ class WelcomeScene extends Phaser.Scene {
   }
 
   _newGameButtonClicked(){
-    console.log('clicked on the new game')
-    this.scene.stop()
     this.scene.start('main')
+    this.scene.stop()
   }
 }
 
