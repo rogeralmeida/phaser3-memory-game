@@ -32,5 +32,8 @@ export default class MemoryGame extends Component {
     }
 
     this.game = new Phaser.Game(config)
+    window.addEventListener('resize', () => {
+      game.resize(window.innerWidth, window.innerHeight);
+    })
   }
 }
