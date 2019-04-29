@@ -1,11 +1,13 @@
+import backgroundImage from '../../../images/background.jpg'
+import CardBack from '../../../images/card-back.png'
 import BackGroundBlackJack from '../../../images/background-blackjack.jpg'
 import NewGameImage from '../../../images/new-game.png'
 import ButtonImage from '../../../images/b_1.png'
 import BorgensBurlesqueImage from '../../../fonts/borgens_burlesque/Borgens Burlesque.png'
 import BorgensBurlesqueFont from '../../../fonts/borgens_burlesque/Borgens Burlesque.fnt'
-
 import Phaser from 'phaser'
 
+const requireContext = require.context('../../../images/cards/png-cards', true, /\.png$/)
 const BORGENS_BURLESQUE_FONT_NAME = 'borgerns-burlesque'
 const BACKGROUND_IMAGE_KEY = 'background-blackjack'
 const NEW_GAME_BUTTON_KEY = 'new-game'
@@ -25,6 +27,14 @@ class WelcomeScene extends Phaser.Scene {
     this.load.image(NEW_GAME_BUTTON_KEY, NewGameImage)
     this.load.image(BUTTON_1_KEY, ButtonImage)
     this.load.bitmapFont(BORGENS_BURLESQUE_FONT_NAME, BorgensBurlesqueImage, BorgensBurlesqueFont)
+
+    this.load.image('background', backgroundImage)
+    this.load.image('card-back', CardBack)
+    var self = this
+    requireContext.keys().forEach((item) => {
+      var name = item.substring(2)
+      self.load.image(name, `images/cards/png-cards/${name}`)
+    })
   }
 
   create (data){

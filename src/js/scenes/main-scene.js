@@ -1,9 +1,5 @@
-import backgroundImage from '../../../images/background.jpg'
-import CardBack from '../../../images/card-back.png'
 import Board from '../domain/board'
 import Phaser from 'phaser'
-
-var requireContext = require.context('../../../images/cards/png-cards', true, /\.png$/)
 
 class MainScene extends Phaser.Scene {
 
@@ -14,14 +10,6 @@ class MainScene extends Phaser.Scene {
     })
   }
   preload () {
-    console.log('Pre-load BoardScene')
-    this.load.image('background', backgroundImage)
-    this.load.image('card-back', CardBack)
-    var self = this
-    requireContext.keys().forEach((item) => {
-      var name = item.substring(2)
-      self.load.image(name, `images/cards/png-cards/${name}`)
-    })
   }
 
   create (data) {
