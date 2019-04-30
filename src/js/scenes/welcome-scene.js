@@ -5,6 +5,7 @@ import NewGameImage from '../../../images/new-game.png'
 import ButtonImage from '../../../images/b_1.png'
 import BorgensBurlesqueImage from '../../../fonts/borgens_burlesque/Borgens Burlesque.png'
 import BorgensBurlesqueFont from '../../../fonts/borgens_burlesque/Borgens Burlesque.fnt'
+import ArrowLeftImage from '../../../images/arrow-left.png'
 import Phaser from 'phaser'
 
 const requireContext = require.context('../../../images/cards/png-cards', true, /\.png$/)
@@ -26,6 +27,7 @@ class WelcomeScene extends Phaser.Scene {
     this.load.image(BACKGROUND_IMAGE_KEY, BackGroundBlackJack)
     this.load.image(NEW_GAME_BUTTON_KEY, NewGameImage)
     this.load.image(BUTTON_1_KEY, ButtonImage)
+    this.load.image('arrow-left-image', ArrowLeftImage)
     this.load.bitmapFont(BORGENS_BURLESQUE_FONT_NAME, BorgensBurlesqueImage, BorgensBurlesqueFont)
 
     this.load.image('background', backgroundImage)
