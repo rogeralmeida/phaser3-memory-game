@@ -56,7 +56,7 @@ class ModeSelectionScene extends Phaser.Scene {
   }
 
   createButtonNewGame() {
-    let text = this.add.bitmapText(400, 375, BORGENS_BURLESQUE_FONT_NAME, "New Game", 48)
+    let text = this.add.bitmapText(400, 375, BORGENS_BURLESQUE_FONT_NAME, "One Player", 48)
     text.x = 400 - (text.width / 2)
     let newGameButton = this.add.image(text.x - 30, 400 , ARROW_RIGHT_IMAGE_KEY);
     newGameButton.setScale(0.15);
