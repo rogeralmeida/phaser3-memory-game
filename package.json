@@ -43,6 +43,7 @@
     "start": "electron src/js/main.js",
     "heroku-postbuild": "webpack -p",
     "start:dev": "webpack-dev-server",
+    "start:heroku": "node server.js",
     "test": "jest --watch --notify",
     "lint": "eslint ."
   },
