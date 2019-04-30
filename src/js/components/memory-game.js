@@ -4,6 +4,7 @@ import MainScene from '../scenes/main-scene'
 import WelcomeScene from '../scenes/welcome-scene'
 import GameOverScene from '../scenes/game-over-scene'
 import CongratulationsScene from '../scenes/congratulations-scene'
+import ModeSelectionScene from '../scenes/mode-selection-scene'
 
 var requireContext = require.context('../../../images/cards/png-cards', true, /^\.\/.*\.png$/)
 
@@ -28,12 +29,13 @@ export default class MemoryGame extends Component {
         width: 800,
         height: 600
       },
-      scene: [WelcomeScene, MainScene, GameOverScene, CongratulationsScene]
+      scene: [WelcomeScene, MainScene, GameOverScene, CongratulationsScene, 
+        ModeSelectionScene]
     }
 
     this.game = new Phaser.Game(config)
     window.addEventListener('resize', () => {
-      game.resize(window.innerWidth, window.innerHeight);
+      this.game.resize(window.innerWidth, window.innerHeight);
     })
   }
 }
