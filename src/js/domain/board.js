@@ -4,16 +4,21 @@ import Card from './card'
 
 
 var EventEmitter = require('eventemitter3');
+const INITIAL_X = 300;
+const INITIAL_Y = 100;
+const X_STEP = 150;
+const Y_STEP = 150;
+const X_MAX = 1100;
 
 export default class Board extends EventEmitter {
   constructor (game, size) {
     super()
 
-    this.initialX = 150
-    this.initialY = 75
-    this.stepX = 100
-    this.stepY = 150
-    this.maxX = 700
+    this.initialX = INITIAL_X;
+    this.initialY = INITIAL_Y;
+    this.stepX = X_STEP;
+    this.stepY = Y_STEP;
+    this.maxX = X_MAX;
     this.size = size
     var deck = new Deck(game, new ShufflerAdapter())
     if (size % 2 !== 0) {
