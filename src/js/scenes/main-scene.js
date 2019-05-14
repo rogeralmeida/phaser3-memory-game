@@ -20,9 +20,8 @@ class MainScene extends Phaser.Scene {
     backgroundImage.setScale(2, 2)
 
     this.createBackButton();
-    let panel = this.add.rectangle(60, 250, 100, 300, '0xff0000', 0.7)
-    panel.centerX = 0
-    panel.centerY = 0
+    let panel = this.add.rectangle(120, 400, 200, 600, '0xff0000', 0.7)
+
     const board = new Board(this, 24)
     board.start()
     this.input.on('gameobjectup', (pointer, gameObject) => {

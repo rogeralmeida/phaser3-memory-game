@@ -5,7 +5,7 @@ import Card from './card'
 
 var EventEmitter = require('eventemitter3');
 const INITIAL_X = 300;
-const INITIAL_Y = 100;
+const INITIAL_Y = 150;
 const X_STEP = 150;
 const Y_STEP = 150;
 const X_MAX = 1100;
