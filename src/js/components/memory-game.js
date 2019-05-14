@@ -26,8 +26,8 @@ export default class MemoryGame extends Component {
         parent: 'game-container',
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.DOM.CENTER_BOTH,
-        width: 800,
-        height: 600
+        width: 1280,
+        height: 720
       },
       scene: [WelcomeScene, MainScene, GameOverScene, CongratulationsScene, 
         ModeSelectionScene]
