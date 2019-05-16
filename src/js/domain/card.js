@@ -1,4 +1,5 @@
 const CLICK_EVENT_KEY = 'click'
+
 export default class Card {
   constructor (game, value, symbol) {
     this.game = game
@@ -12,7 +13,6 @@ export default class Card {
   }
 
   onClick () {
-    console.log('Clicked')
     this.toggle()
   }
 
@@ -53,8 +53,6 @@ export default class Card {
       return false
     }
     if (!other instanceof Card){
-      console.log('card is of a different type')
-      console.log(typeof other)
       return false
     }
     return this.value === other.value && this.symbol === other.symbol
