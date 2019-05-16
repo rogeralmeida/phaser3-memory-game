@@ -1,6 +1,8 @@
 import ShufflerAdapter from '../phaser-adapters/shuffler-adapter'
 import Deck from './deck'
 import Card from './card'
+import DeckIcons from './deck-icons'
+import CardIcon from './card-icon'
 
 
 var EventEmitter = require('eventemitter3');
@@ -11,6 +13,7 @@ const Y_STEP = 150;
 const X_MAX = 1100;
 
 export default class Board extends EventEmitter {
+
   constructor (game, size) {
     super()
 
@@ -20,7 +23,7 @@ export default class Board extends EventEmitter {
     this.stepY = Y_STEP;
     this.maxX = X_MAX;
     this.size = size
-    var deck = new Deck(game, new ShufflerAdapter())
+    var deck = new DeckIcons(game, new ShufflerAdapter())
     if (size % 2 !== 0) {
       throw new Error('Size must be a even number')
     }
@@ -28,7 +31,7 @@ export default class Board extends EventEmitter {
     var doubleCards = []
     deck.pop(half).forEach((card) => {
       doubleCards.push(card)
-      doubleCards.push(new Card(game, card.value, card.symbol))
+      doubleCards.push(new CardIcon(game, card.name))
     })
     this.cards = new ShufflerAdapter().shuffle(doubleCards)
     this.firstCard = null

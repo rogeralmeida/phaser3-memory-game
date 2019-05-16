@@ -9,6 +9,7 @@ import PanelImage from '../../../images/panel.png'
 import Phaser from 'phaser'
 
 const requireContext = require.context('../../../images/cards/png-cards', true, /\.png$/)
+const iconsContext = require.context('../../../images/icons', true, /\.png$/)
 const BORGENS_BURLESQUE_FONT_NAME = 'borgerns-burlesque'
 const BACKGROUND_IMAGE_KEY = 'background'
 const BUTTON_1_KEY = 'button_1'
@@ -36,6 +37,10 @@ class WelcomeScene extends Phaser.Scene {
     requireContext.keys().forEach((item) => {
       var name = item.substring(2)
       self.load.image(name, `images/cards/png-cards/${name}`)
+    })
+    iconsContext.keys().forEach((item) => {
+      var name = item.substring(2);
+      self.load.image(name, `images/icons/${name}`);
     })
   }
 
